@@ -1,16 +1,13 @@
-def cold_number(num):
-    d = 0
-    if num<100:
-        c = num
-        return print(c)
-    elif num>=100:
-        for i in range(num, 99 , -1):
-           a = i // 100
-           b = (i // 10) % 10 
-           c = i % 10
-           if (a - b) == (b - c):
-               d = d + 1
-        return print(d + 99) 
-
-num = int(input())
-cold_number(num)
+def c(N):
+    sum = 0
+    for i in range(1, N+1):
+        l = [int(n) for n in str(i)]
+        if len(l) < 3:
+            sum = sum + 1
+        else:
+            d = l[1] - l[0]
+            for a in range(1, len(l)-1):
+                if l[a+1] - l[a] == d:
+                    sum = sum + 1
+    return sum
+print(c(int(input())))
