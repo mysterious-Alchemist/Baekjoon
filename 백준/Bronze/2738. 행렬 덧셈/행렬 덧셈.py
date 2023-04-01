@@ -1,16 +1,11 @@
-a = []
-b = []
-m, n = map(int, input().split())
+def matrix_addition():
+    n, m = map(int, input().split())
 
-for i in range(m*2):
-    tmp = list(map(int, input().split()))
-    if(i<m):
-        a.append(tmp)
-    else:
-        b.append(tmp)
+    a = [list(map(int, input().split())) for _ in range(n)]
+    b = [list(map(int, input().split())) for _ in range(n)]
 
-for i in range(m):
-    for j in range(n):
-        sum = (a[i][j]+b[i][j])
-        print(sum, end = " ")
-    print()
+    c = [[a[i][j] + b[i][j] for j in range(m)] for i in range(n)]
+
+    for row in c:
+        print(*row)
+matrix_addition()
